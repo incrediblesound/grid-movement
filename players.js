@@ -70,35 +70,37 @@ var changer = function(object, data) {
     }
   };
 };
+
 function robot (name) {
   this.name = name;
   this.position = ['top',0];
 };
+
 var forEach = function (array, fn) {
   for(i=0;i<array.length;i++) {
     fn(array[i], i);
   }
 };
+
 var destroyer = {
   name:'destroyer',
   position: ['btm',2]
 };
+
 var moveRobot = function(){
   var possible = [];
   if(destroyer.position[0] !== 'top') {
     possible.push('0.1');
   }
-  else if(destroyer.position[0] !== 'btm') {
+  if(destroyer.position[0] !== 'btm') {
     possible.push('0.0');
   }
-  else if(destroyer.position[1] !== 0) {
+  if(destroyer.position[1] !== 0) {
     possible.push('1.0');
   }
-  else if(destroyer.position[1] !== 2) {
+  if(destroyer.position[1] !== 2) {
     possible.push('1.1');
-  } else {
-    possible = ['0.1','0.0','1.0','1.1'];
-  }
+  } 
   return possible[Math.floor(Math.random()*possible.length)];
 };
 
